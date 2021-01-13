@@ -1,0 +1,24 @@
+<div layout="column" layout-align="center center" id="play-list-container">
+    <md-button class="md-raised md-primary create-playlist-btn" ng-click="createPlayList(null,false)">Create PlayList
+    </md-button>
+    <div id="custom-playlist-container">
+        <div class="listing-container">
+            <div ng-if="isLoading" class="progress-bar">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <div class="no-data" ng-if="customPlayList.length < 1 && !isLoading" layout="column"
+                layout-align="center center">
+                <span>No Songs Found</span>
+            </div>
+            <div ng-repeat="song in customPlayList track by $index" class="songs-container">
+                <div class="songs-list" layout="row" ng-click="createPlayList(song,true)">
+                    <div layout="column" flex="50" class="label-ctr" layout-align="center start">
+                        <div>PlayList{{song[0].userId}}</div>
+                    </div>
+                    <div flex>
+                        <div class="play-time"> Created at : 12:45:05</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

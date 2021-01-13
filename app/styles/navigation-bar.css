@@ -1,0 +1,35 @@
+#navigation-bar{
+    height:100%;
+    width:100%;
+}
+
+#navigation-bar .selected{
+    border-bottom: 3px solid orange;
+}
+
+#navigation-bar .title{
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+}
+
+#navigation-bar .header-tabs{
+    padding:30px;
+}
+
+.header-tabs .label-container{
+    width:50%;
+}
+
+.header-tabs .header-text{
+    padding:10px;
+    font-size: 20px;
+    color:white;
+     width:50%;
+     text-align:center;
+     cursor: pointer;
+}
+
+.white-font{
+    color:white;
+}

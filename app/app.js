@@ -1,0 +1,1 @@
+var musicApp = angular.module('musicApp', ['ngAria','ngAnimate','ngMaterial','ui.router']);

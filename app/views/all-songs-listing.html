@@ -1,0 +1,28 @@
+<div layout="column" id="all-songs-container">
+    <div layout="row" class="search-container">
+        <input class="search-input" placeholder="search for songs" type="text" ng-model="searchValue" ng-trim="false" />
+        <span class="search-icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
+    </div>
+    <div class="listing-container" ng-class="{'no-records':(displayList.length < 1)}">
+        <div ng-if="isLoading" class="progress-bar">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div class="no-records" ng-if="displayList.length < 1 && !isLoading" layout="column" layout-align="center center">
+            <span>No Songs Found</span>
+        </div>
+        <div ng-repeat="song in  displayList=(songsList | filter:searchValue)" class="songs-container">
+            <div class="songs-list" layout="row">
+                <div layout="column" flex="50" class="label-ctr">
+                    <div>{{song.title}}</div>
+                    <div>Artist : <span>AR.Rahuman</span></div>
+                    <div>Album : Closer</div>
+                </div>
+                <div flex>
+                    <div class="play-time">5:00:09</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

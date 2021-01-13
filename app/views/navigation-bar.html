@@ -1,0 +1,14 @@
+<div layout="column" id="navigation-bar">
+    <div class="title white-font">Play List</div>
+    <div layout="row" class="header-tabs" layout-align="center center">
+        <div layout="row" layout-align="center center" class="label-container">
+            <div ui-sref="music-app.all-songs-list" ui-sref-active="selected" class="header-text">
+                All songs
+            </div>
+            <div ui-sref="music-app.custom-play-list" ui-sref-active="selected" class="header-text">
+                Play Lists
+            </div>
+        </div>
+    </div>
+    <ui-view style="height:100%"></ui-view>
+</div>

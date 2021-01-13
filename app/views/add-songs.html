@@ -1,0 +1,54 @@
+<md-dialog id="add-songs-container">
+    <div layout="row" layout-align="center center" class="header-container">
+        <div flex="95">Add/Edit Play lists</div>
+        <div flex>
+            <i class="fa fa-close close-icon" ng-click="close()"></i>
+        </div>
+    </div>
+    <div layout="row" layout-align="center center">
+        <div layout="row" class="search-container">
+            <input class="search-input" placeholder="search for songs" type="text" ng-model="searchValue"
+                ng-trim="false" />
+            <span class="search-icon">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+        </div>
+        <md-button ng-if="isEdit" class="md-raised md-primary create-playlist-btn add-songs-btn" ng-if="customSongs"
+            ng-click="addSongs()">Add Songs</md-button>
+        <md-button ng-if="isEdit" class="md-raised md-primary create-playlist-btn add-songs-btn" ng-if="customSongs"
+            ng-click="shuffleList()">Shuffle</md-button>
+    </div>
+
+    <div class="play-list-label"><label>Playlist Name</label>
+        <input ng-model="playListName">
+    </div>
+
+    <div class="listing-container">
+        <div ng-if="isLoading" class="progress-bar">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div class="no-data" ng-if="displayList.length < 1 && !isLoading" layout="column" layout-align="center center">
+            <span>No Records Found</span>
+        </div>
+        <div ng-repeat="song in displayList=(playLists | filter:searchValue)" class="songs-container">
+            <div class="songs-list" layout="row">
+                <md-checkbox ng-model="song.selected" aria-label="Checkbox 1">
+                </md-checkbox>
+                <div layout="column" flex="50" class="label-ctr">
+                    <div>{{song.title}}</div>
+                    <div>Artist : <span>AR.Rahuman</span></div>
+                    <div>Album : Closer</div>
+                </div>
+                <div flex>
+                    <div class="play-time">5:00:09</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" layout-align="center center">
+        <md-button ng-disabled="!playListName" ng-if="!isEdit" class="md-raised md-primary create-playlist-btn"
+            ng-click="addPlayList()">Save</md-button>
+        <md-button ng-if="isEdit" class="md-raised md-primary create-playlist-btn" ng-click="removeSong()">Remove
+        </md-button>
+    </div>
+</md-dialog>
